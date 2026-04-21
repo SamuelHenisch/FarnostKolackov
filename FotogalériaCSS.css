@@ -102,3 +102,25 @@ body {
 .hidden-photo {
     display: none;
 }
+/* RESPONSIVITA PRE FOTOGALÉRIU */
+@media (max-width: 768px) {
+    .galeria-vnutro {
+        /* Prepnutie z 3 stĺpcov na 1 stĺpec na mobiloch */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .podnadpis {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+
+    .gallery-item img {
+        /* Vyššie fotky na mobile, aby lepšie ukázali obsah albumu */
+        height: 250px; 
+    }
+
+    .photo-description h3 {
+        font-size: 1.1rem;
+    }
+}

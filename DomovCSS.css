@@ -255,36 +255,75 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* MOBILNÉ ÚPRAVY */
+
+/* MOBILNÁ HLAVIČKA A AKTUALITY */
 @media (max-width: 600px) {
-    .header-content {
-        flex-direction: row; /* Necháme ich vedľa seba, ale upravíme veľkosť */
-        flex-wrap: nowrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    /* Skryjeme druhé logo, aby zostalo miesto pre text */
-    .hide-on-mobile {
-        display: none;
-    }
-
-    .logo-link img {
-        height: 60px; /* Ešte menšie logo na mobile */
-    }
-
-    #main-header h1 {
-        font-size: 1.4rem; /* Čitateľný názov na mobile */
-        line-height: 1.2;
-    }
-
-    #navigation ul {
-        flex-direction: column; /* Menu pod sebou pre lepšie klikanie */
-        align-items: center;
+    /* Zmenšenie hlavičky */
+    #main-header {
         padding: 10px 0;
     }
 
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Rozmiestni logá na kraje a text do stredu */
+        padding: 0 10px;
+    }
+
+    /* Zabezpečíme, aby obe logá boli viditeľné a malé */
+    .logo-link {
+        display: block !important; 
+    }
+
+    .logo-link img {
+        height: 40px; /* Menšie logá, aby sa zmestili vedľa textu */
+        width: auto;
+    }
+
+    #main-header h1 {
+        font-size: 1.6rem; /* Zmenšený text, aby sa nezalamoval */
+        margin: 0 5px;
+        flex: 1;
+        text-align: center;
+    }
+
+    /* OPRAVA NAVIGÁCIE (aby slová neboli zlepené) */
+    #navigation ul {
+        display: flex;
+        flex-direction: row; /* Menu zostane v riadku */
+        flex-wrap: wrap;    /* Ale ak je dlhé, skočí do nového riadku */
+        justify-content: center;
+        padding: 10px 5px;
+        gap: 15px;          /* TOTO PRIDÁ MEDZERY MEDZI POLOŽKAMI */
+    }
+
     #navigation li {
-        margin: 5px 0;
+        margin: 0;         /* Resetujeme staré marginy */
+    }
+
+    #navigation a {
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        white-space: nowrap; /* Zabráni rozdeleniu jedného slova */
+    }
+
+    /* Aktuality pod sebou */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .news-image {
+        height: 180px; /* Menšia výška obrázkov pre úsporu miesta */
+    }
+
+    .news-body {
+        padding: 15px;
+    }
+
+    .news-body h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
     }
 }
