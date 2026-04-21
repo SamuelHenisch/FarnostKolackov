@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="DomovCSS.css">
+    <link rel="stylesheet" href="KontaktCSS.css">
+    <title>Kontakt - Farnosť Kolačkov</title>
+</head>
+<body>
+    <div id="container"> 
+        <header id="main-header"> 
+            <div class="header-content">
+                <a href="Domov.html" class="logo-link">
+                    <img src="https://www.kolackov.sk/imgcache/e-img-2248.jpg?v=1709658761" alt="Erb Kolačkova">
+                </a>
+                <h1>Farnosť Kolačkov</h1>
+                <a href="Domov.html" class="logo-link">
+                    <img src="https://www.kolackov.sk/imgcache/e-img-2248.jpg?v=1709658761" alt="Erb Kolačkova">
+                </a>
+            </div>
+        </header>
+
+        <nav id="navigation"> 
+            <ul>
+                <li><a href="Domov.html">DOMOV</a></li>
+                <li><a href="Fotogaléria.html">FOTOGALÉRIA</a></li>
+                <li><a href="Ofarnosti.html">O FARNOSTI</a></li>
+                <li><a href="Kontakt.html" class="active">KONTAKT</a></li>
+            </ul>
+        </nav>
+
+        <main id="main-content">
+            <div class="kontakt-grid-container">
+                
+                <section id="contact-main">
+                    <div class="contact-card">
+                        <h2 class="section-title">Napíšte nám</h2>
+                        <form action="#" method="post" class="modern-form">
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="name">Meno a priezvisko</label>
+                                    <input type="text" id="name" name="name" placeholder="Vaše meno" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" id="email" name="email" placeholder="vas@email.sk" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="subject">Predmet</label>
+                                <input type="text" id="subject" name="subject" placeholder="O čom nám chcete napísať?">
+                            </div>
+                            <div class="input-group">
+                                <label for="message">Správa</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Vaša správa..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Odoslať správu</button>
+                        </form>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.670576359679!2d20.613346576885374!3d49.2636906713904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e16443c5f590d%3A0x6a2c3a5d7c35699c!2zS29sYcSNYm92IDQwLCAwNjUgMTEgS29sYcSNYm92!5e0!3m2!1ssk!2ssk!4v1710000000000!5m2!1ssk!2ssk" 
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </section>
+
+                <aside id="contact-sidebar">
+                    <div class="info-card-unified">
+                        <h2 class="podnadpis-small">Kontaktné údaje</h2>
+                        <div class="contact-info-list">
+                            <div class="contact-item">
+                                <span class="label">Adresa</span>
+                                <span class="value">Kolačkov 40, 065 11</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="label">Telefón</span>
+                                <span class="value">052 / 436 31 61</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="label">E-mail</span>
+                                <span class="value">farnost.kolackov@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="label">IČO</span>
+                                <span class="value">31952311</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer id="main-footer">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <p class="f-brand">Rímskokatolícka farnosť Kolačkov</p>
+                    <img src="cropped-image-2.png" alt="Erb farnosti Kolačkov" class="f-logo-colored">
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <p>Kolačkov 40, 065 11</p>
+                    <p>farnost.kolackov@gmail.com</p>
+                    <p>052 / 436 31 61</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Úradné hodiny</h4>
+                    <p>Po - Pi: 7:00 - 17:00</p>
+                    <p>So - Ne: Zatvorené</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Farnosť Kolačkov | <a href="#">Ochrana údajov</a> | <a href="#">Facebook</a></p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

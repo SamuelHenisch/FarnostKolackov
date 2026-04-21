@@ -1,0 +1,109 @@
+:root {
+    --primary-color: darkslategray;
+    --accent-color: #d2b48c;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Hlavné rozloženie: História vľavo, Info vpravo */
+.main-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* MRIEŽKA PRE HISTÓRIU (2 stĺpce vedľa seba) */
+.history-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dva bloky vedľa seba */
+    gap: 20px;
+}
+
+.history-block {
+    background: white;
+    padding: 25px;
+    border-top: 5px solid var(--accent-color); /* Linka hore pre moderný vzhľad */
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    transition: var(--transition);
+    cursor: default;
+}
+
+/* HOVER EFEKT */
+.history-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-top-color: var(--primary-color);
+}
+
+.year {
+    display: block;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* SIDEBAR S INFORMÁCIAMI */
+#info-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.info-card-unified {
+    background-color: #f0f7f7;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border-left: 6px solid var(--primary-color);
+}
+
+.podnadpis-small {
+    margin-top: 0;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.info-row-pôvodny {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 5px;
+}
+
+.label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.value {
+    font-size: 1.1rem;
+    color: #111;
+}
+
+/* Nadpisy */
+.podnadpis {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* RESPONSIVITA */
+@media (max-width: 900px) {
+    .main-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .history-grid {
+        grid-template-columns: 1fr; /* Na mobile pod sebou */
+    }
+    #info-sidebar {
+        position: static;
+        order: -1;
+    }
+}

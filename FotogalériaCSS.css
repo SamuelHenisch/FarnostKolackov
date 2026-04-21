@@ -1,0 +1,104 @@
+:root {
+    --primary-color: darkslategray;
+    --accent-color: #d2b48c;
+    --bg-soft-green: #f2f7f2; /* Jemná zelená */
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body {
+    background-color: var(--bg-soft-green);
+    margin: 0;
+}
+
+/* Hero sekcia preberá štýly z DomovCSS.css (obrázok amfiteátra) */
+#hero-section {
+    margin-bottom: 40px;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.podnadpis {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+/* Mriežka fotiek - STATICKÁ, nič sa nehýbe */
+.galeria-vnutro {
+    display: grid;
+    /* 380px zabezpečí, že bloky nie sú ani príliš obrovské, ani úzke */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px; 
+    padding: 10px 0;
+}
+
+/* 2. Celý blok fotky */
+.gallery-item {
+    background: white;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative; /* Dôležité pre správne umiestnenie popisu */
+}
+
+/* 3. Obrázok - vyvážený širokouhlý formát */
+.gallery-item img {
+    width: 100%;
+    /* Výška 260px pri šírke 380px vytvorí pekný obdĺžnik */
+    height: 270px; 
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+.gallery-item a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+/* Štýl pre popis s gradientom */
+.photo-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Gradient: zhora priehľadná (transparent) do čiernej (rgba) */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 20px 10px 10px 10px; /* Väčší padding hore kvôli plynulosti gradientu */
+    text-align: center;
+}
+
+/* Biely text nadpisu */
+.photo-description h3 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Jemný tieň pod písmom pre ešte lepšiu čitateľnosť */
+}
+
+/* Efekt pri prejdení myšou (voliteľné) */
+.gallery-item:hover .photo-description {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: 0.3s ease;
+}
+
+/* Zabezpečenie, že footer je pevne na spodku */
+#main-footer {
+    position: relative;
+    margin-top: 50px;
+}
+
+.hidden-photo {
+    display: none;
+}

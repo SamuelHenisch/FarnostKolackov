@@ -1,0 +1,146 @@
+:root {
+    --primary-color: darkslategray;
+    --accent-color: #d2b48c;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    /* Veľmi jemná zelená pre pozadie */
+    --soft-green-bg: #f2f7f2; 
+}
+
+/* Nastavenie pozadia pre celú podstránku */
+body {
+    background-color: var(--soft-green-bg);
+    margin: 0;
+}
+
+/* Rozloženie mriežky pre kontakt */
+.kontakt-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    /* Zabezpečí, že stĺpce začínajú zarovno hore */
+    align-items: start; 
+}
+
+/* Karta s formulárom */
+.contact-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.modern-form .input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.input-group input, 
+.input-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Tlačidlo */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #1a2b2b;
+}
+
+/* Mapa */
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid #eee;
+}
+
+/* Sidebar s údajmi - STATICKÝ (nehýbe sa) */
+#contact-sidebar .info-card-unified {
+    background-color: white; /* Biela karta na jemne zelenom pozadí vynikne */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border-right: 6px solid var(--accent-color);
+    /* Zmenené z position: sticky na static/relative, aby sa blok nehýbal */
+    position: relative;
+    top: 0;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 10px;
+}
+
+.contact-item .label {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-item .value {
+    display: block;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.podnadpis-small {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responzivita */
+@media (max-width: 900px) {
+    .kontakt-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .modern-form .input-row {
+        grid-template-columns: 1fr;
+    }
+    #contact-sidebar {
+        order: -1;
+    }
+}
