@@ -31,112 +31,44 @@
         </nav>
 
         <main id="main-content">
-            <div class="kontakt-grid-container">              
+            <div class="kontakt-grid-container">
+                
                 <section id="contact-main">
                     <div class="contact-card">
                         <h2 class="section-title">Napíšte nám</h2>
-                    <form id="contact-form" class="modern-form">
-                <input type="hidden" name="access_key" value="640f19d7-04a2-491a-955b-57c9ba3f5f80">
-
-                <div class="input-row">
-                    <div class="input-group">
-                        <label for="name">Meno a priezvisko</label>
-                        <input type="text" id="name" name="meno" placeholder="Vaše meno" required>
+                        <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="modern-form">
+                            <input type="hidden" name="access_key" value="640f19d7-04a2-491a-955b-57c9ba3f5f80">
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label for="name">Meno a priezvisko</label>
+                                        <input type="text" id="name" name="name" placeholder="Vaše meno" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" id="email" name="email" placeholder="vas@email.sk" required>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label for="subject">Predmet</label>
+                                    <input type="text" id="subject" name="subject" placeholder="O čom nám chcete napísať?">
+                                </div>
+                                <div class="input-group">
+                                    <label for="message">Správa</label>
+                                    <textarea id="message" name="message" rows="6" placeholder="Vaša správa..." required></textarea>
+                                </div>
+                                <div id="result" style="margin-bottom: 15px; font-weight: bold; text-align: center;"></div>
+                                <button type="submit" class="btn-primary">Odoslať správu</button>
+                            </form>
+                            <script src="KontaktJS.js"></script>
                     </div>
-                    <div class="input-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="vas@email.sk" required>
+
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2613.670576359679!2d20.613346576885374!3d49.2636906713904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473e16443c5f590d%3A0x6a2c3a5d7c35699c!2zS29sYcSNYm92IDQwLCAwNjUgMTEgS29sYcSNYm92!5e0!3m2!1ssk!2ssk!4v1710000000000!5m2!1ssk!2ssk" 
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
                     </div>
-                </div>
-
-                <div class="input-group">
-                    <label for="subject">Predmet</label>
-                    <input type="text" id="subject" name="predmet" placeholder="O čom nám chcete napísať?">
-                </div>
-
-                <div class="input-group">
-                    <label for="message">Správa</label>
-                    <textarea id="message" name="sprava" rows="6" placeholder="Vaša správa..." required></textarea>
-                </div>
-
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                <button type="submit" class="btn-primary" id="submit-btn">Odoslať správu</button>
-                
-                <div id="result-message" style="margin-top: 15px; font-weight: bold; text-align: center;"></div>
-            </form>
-        </div>
-
-        <aside class="contact-info">
-            <div class="info-card">
-                <h3>Kontaktné údaje</h3>
-                <div class="info-content">
-                    <div class="contact-item">
-                        <span class="label">Adresa</span>
-                        <span class="value">Kolačkov 40, 065 11</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="label">E-mail</span>
-                        <span class="value">farnost.kolackov@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="label">IČO</span>
-                        <span class="value">31952311</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
-</section>
-
-<script>
-const form = document.getElementById('contact-form');
-const result = document.getElementById('result-message');
-const btn = document.getElementById('submit-btn');
-
-form.addEventListener('submit', function(e) {
-    e.preventDefault(); // ZASTAVÍ CHYBU 405 (odosielanie na GitHub)
-    
-    btn.disabled = true;
-    btn.innerText = "Odosielam...";
-    result.innerText = "Spracovávam požiadavku...";
-    result.style.color = "black";
-
-    const formData = new FormData(form);
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(async (response) => {
-            let res = await response.json();
-            if (response.status == 200) {
-                result.style.color = "green";
-                result.innerText = "Správa bola úspešne odoslaná!";
-                form.reset();
-            } else {
-                result.style.color = "red";
-                result.innerText = "Chyba: " + res.message;
-            }
-        })
-        .catch(error => {
-            result.style.color = "red";
-            result.innerText = "Niečo sa pokazilo, skúste to neskôr.";
-        })
-        .then(function() {
-            btn.disabled = false;
-            btn.innerText = "Odoslať správu";
-            // Správa po 5 sekundách zmizne
-            setTimeout(() => { result.innerText = ""; }, 5000);
-        });
-});
-</script>
+                </section>
 
                 <aside id="contact-sidebar">
                     <div class="info-card-unified">
