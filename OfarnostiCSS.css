@@ -115,7 +115,7 @@
         box-sizing: border-box;
     }
     .sviatosti-table td:first-child {
-        background-color: var(--primary-color);
+        background-color: #f0f7f7;
         font-weight: bold;
         border-bottom: none;
     }
