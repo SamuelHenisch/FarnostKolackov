@@ -105,6 +105,45 @@ body {
     font-family: Georgia, serif;
 }
 
+/* CAROUSEL */
+#carouselExampleDark {
+    margin-bottom: 50px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#carouselExampleDark .carousel-item {
+    position: relative;
+}
+
+#carouselExampleDark .carousel-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
+    pointer-events: none;
+}
+
+#carouselExampleDark .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#carouselExampleDark .carousel-caption {
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    #carouselExampleDark .carousel-item img {
+        height: 220px;
+    }
+}
+
 /* HLAVNÝ OBSAH */
 #main-content {
     max-width: 1200px;
@@ -179,19 +218,25 @@ body {
 .news-body { padding: 20px; }
 
 /* TLAČIDLO */
+a.btn-primary,
 .btn-primary {
     display: inline-block;
-    background: var(--primary);
+    background: var(--primary) !important;
     color: white !important;
-    padding: 12px 25px;
-    border-radius: 25px;
+    padding: 12px 25px !important;
+    border-radius: 25px !important;
     margin-top: 15px;
     transition: all 0.3s;
+    border: none !important;
+    box-shadow: none !important;
+    text-decoration: none;
 }
 
+a.btn-primary:hover,
 .btn-primary:hover {
-    background: #1a2b2b;
+    background: #1a2b2b !important;
     transform: scale(1.05);
+    color: white !important;
 }
 
 /* FOOTER */
